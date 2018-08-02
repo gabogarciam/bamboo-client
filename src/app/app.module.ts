@@ -7,7 +7,9 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
-const routes: Routes = [ { path: 'signup', component: SignupPageComponent} ];
+const routes: Routes = [
+  { path: 'signup', component: SignupPageComponent}
+];
 
 @NgModule({
   declarations: [
