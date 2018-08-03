@@ -5,6 +5,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+//-- Angular Material Modules
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule, MatMenuModule} from '@angular/material';
+
 // -- Services
 import { AuthService } from './services/auth.service';
 
@@ -21,6 +25,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { MenuIconsExample } from './components/menu-icons-example/menu-icons-example.component';
 
 // -- Components
 
@@ -31,7 +36,7 @@ const routes: Routes = [
   { path: 'login',  component: LoginPageComponent, canActivate: [ RequireAnonGuard ] },
   { path: 'signup',  component: SignupPageComponent, canActivate: [ RequireAnonGuard ] },
   { path: 'profile',  component: ProfilePageComponent , canActivate: [ RequireUserGuard ] },
-  { path: '**', redirectTo: '' }
+  { path: '**', component: NotFoundPageComponent, canActivate: [ InitAuthGuard ] }
 ];
 
 @NgModule({
@@ -41,13 +46,18 @@ const routes: Routes = [
     LoginPageComponent,
     ProfilePageComponent,
     HomePageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    MenuIconsExample
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatMenuModule
   ],
   providers: [
     AuthService,
