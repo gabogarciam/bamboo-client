@@ -40,7 +40,7 @@ html {
   #site-header {
     padding: 30px 0;
     color: white;
-    background: #111;
+    background: rgb(165, 52, 52);
   }
   
   #site-footer {
@@ -68,10 +68,7 @@ html {
       margin: 0 auto;
     }
   }
-  
-  
-  
-  
+    
   /* ---- components ---- */
 
   /* You can add global styles to this file, and also import other style files */
