@@ -21,6 +21,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
+import { ProfileEditPageComponent } from './pages/profile-edit-page/profile-edit-page.component';
 
 // -- Components
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'login',  component: LoginPageComponent, canActivate: [ RequireAnonGuard ] },
   { path: 'signup',  component: SignupPageComponent, canActivate: [ RequireAnonGuard ] },
   { path: 'profile',  component: ProfilePageComponent , canActivate: [ RequireUserGuard ] },
+  { path: 'profile-edit',  component: ProfileEditPageComponent , canActivate: [ RequireUserGuard ] },
   { path: '**', component: NotFoundPageComponent, canActivate: [ InitAuthGuard ] }
 ];
 
@@ -41,7 +43,8 @@ const routes: Routes = [
     LoginPageComponent,
     ProfilePageComponent,
     HomePageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    ProfileEditPageComponent
   ],
   imports: [
     BrowserModule,
