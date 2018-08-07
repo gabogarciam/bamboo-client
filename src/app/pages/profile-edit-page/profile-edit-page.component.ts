@@ -20,14 +20,11 @@ export class ProfileEditPageComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    console.log('UserA:', this.user);
     this.user = this.authService.getUser();
-    console.log('UserB:', this.user);
     this.authService.userChange$.subscribe((user) => {
       this.loading = false;
       this.user = user;
       this.anon = !user;
-      console.log('SubsUpdate:', this.user);
     });
   }
 
@@ -39,6 +36,9 @@ export class ProfileEditPageComponent implements OnInit {
       this.user.username = this.username;
       this.authService.updateUser(this.user)
       .then((result) => {
+        this.error = null;
+        this.processing = false;
+        this.feedbackEnabled = false;
         this.router.navigate(['/profile']);
       })
       .catch((err) => {

@@ -22,10 +22,8 @@ export class AuthService {
   constructor( private httpClient:HttpClient ) { }
 
   private setUser(user?: any) {
-    console.log('service.setUserA', 'User', user, 'this.user', this.user)
     this.user = user;
     this.userChange.next(user);
-    console.log('service.setUserB', 'User', user, 'this.user', this.user)
     return user;
   }
 
@@ -80,7 +78,7 @@ export class AuthService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.put(`${this.baseUrl}/edit-user`, updateData)
+    return this.httpClient.put(`${this.baseUrl}/edit-user`, updateData, options)
       .toPromise()
       .then((user) => {
         this.setUser(user);
@@ -88,7 +86,6 @@ export class AuthService {
   }
 
   getUser(): any {
-    console.log('Service.getUser', this.user);
     return this.user;
   }
 
