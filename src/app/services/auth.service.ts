@@ -74,17 +74,6 @@ export class AuthService {
       .then(() => this.setUser());
   }
 
-  updateUser(updateData): Promise<any> {
-    const options = {
-      withCredentials: true
-    };
-    return this.httpClient.put(`${this.baseUrl}/edit-user`, updateData, options)
-      .toPromise()
-      .then((user) => {
-        this.setUser(user);
-      });
-  }
-
   getUser(): any {
     return this.user;
   }

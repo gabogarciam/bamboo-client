@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+
 import { Router } from '../../../../node_modules/@angular/router';
+import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
+import { FileUploader } from '../../../../node_modules/ng2-file-upload';
+
 
 @Component({
   selector: 'app-profile-edit-page',
@@ -8,6 +12,9 @@ import { Router } from '../../../../node_modules/@angular/router';
   styleUrls: ['./profile-edit-page.component.css']
 })
 export class ProfileEditPageComponent implements OnInit {
+  uploader: FileUploader = new FileUploader({
+    url: `/upload-avatar/`
+  });
 
   loading = true;
   anon: boolean;
@@ -17,7 +24,7 @@ export class ProfileEditPageComponent implements OnInit {
   processing = false;
   username : string = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.user = this.authService.getUser();
@@ -34,7 +41,7 @@ export class ProfileEditPageComponent implements OnInit {
     if (form.valid) {
       this.processing = true;
       this.user.username = this.username;
-      this.authService.updateUser(this.user)
+      this.userService.update(this.user)
       .then((result) => {
         this.error = null;
         this.processing = false;
@@ -47,5 +54,9 @@ export class ProfileEditPageComponent implements OnInit {
         this.feedbackEnabled = false;
       });
     }
+  }
+
+  submitAvatar() {
+    this.uploader.uploadAll();
   }
 }
