@@ -1,19 +1,28 @@
-<header id="site-header">
-  <div class="container">
-
-    <div [ngClass]="{'is-user': user, 'is-anon': anon}">
-      <div *ngIf="loading">
+<header id="site-header" class="col-lg-12">
+  <div class="container navigation col-lg-12">
+    <div [ngClass]="{'is-user': user, 'is-anon': anon}" class="navbar navbar-default">
+      <div *ngIf="loading" class="container-fluid">
         <span class="username text">loading...</span>
       </div>
-      <div *ngIf="!loading && !!user">
-        <a [routerLink]="['/profile']">{{user.username}}</a>
-        <button>
-          <a (click)="logout()">logout</a>
-        </button>
+      <div *ngIf="!loading && !!user" class="dropdown container-fluid">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{user.username}}
+            <!-- <img src="" alt="avatar user"> -->
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="['/profile']">Your profile</a>
+          <a class="dropdown-item" [routerLink]="['/profile']">Edit Profile</a>
+          <a class="dropdown-item" (click)="logout()" >Logout</a>
+        </div>
+        <button type="button" class="btn btn-outline-primary" [routerLink]="['/profile-edit']">Edit profile</button>
+        <!-- <a [routerLink]="['/profile']">{{user.username}}</a> -->
+        <!-- <a (click)="logout()" class="btn btn-danger">Logout</a> -->
       </div>
-      <div *ngIf="!loading && anon">
-        <a [routerLink]="['/login']">login</a>
-        <a [routerLink]="['/signup']">signup</a>
+      <div *ngIf="!loading && anon" class="container-fluid">
+        <a [routerLink]="['/']" class="navbar-brand">{{title}}</a>
+        <a [routerLink]="['/login']">
+          <span class="glyphicons glyphicons-log-in"></span>Login</a>
+        <a [routerLink]="['/signup']">Signup</a>
       </div>
     </div>
   </div>
@@ -23,8 +32,11 @@
   <router-outlet></router-outlet>
 </div>
   
-<footer id="site-footer">
-  <div class="container">
-    nice footer
+<footer id="site-footer" class="card text-center">
+  <div class="container card-header">
+    Gallito Network by Gabriel Garcia
   </div>
+  <div class="card-body">
+      <h5 class="card-title">Ironhack</h5>
+    </div>
 </footer>

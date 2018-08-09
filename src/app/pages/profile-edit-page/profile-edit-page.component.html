@@ -1,7 +1,7 @@
-<div>
-    <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-      <h1>Update User</h1>
-      <p>UserData: {{user?.username}}</p>
+<div class="col-lg-5">
+    <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}" class="col-lg-12">
+      <h3>Update profile</h3>
+      <p>{{user?.username}}</p>
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
         <label>Username</label>
         <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" [disabled]="processing"/>
@@ -9,9 +9,16 @@
           <p *ngIf="usernameField.errors.required" class="validation">username required</p>
         </div>
       </div>
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && emailField.errors}">
+          <label>Email</label>
+          <input type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" [disabled]="processing"/>
+          <div *ngIf="feedbackEnabled && emailField.errors">
+            <p *ngIf="emailField.errors.required" class="validation">email required</p>
+          </div>
+        </div>
   
       <div class="field submit">
-        <button type="submit" [disabled]="processing">Update</button>
+        <button type="submit" [disabled]="processing">Update Profile</button>
         <div *ngIf="feedbackEnabled && form.invalid">
           <p class="validation">there are errors in the form, please review the fields</p>
         </div>
@@ -27,26 +34,9 @@
     
     <form>
         <fieldset>
-          <legend> Phone info </legend>
-          <label> Brand* </label>
-          <input type="text" [(ngModel)]="newPhone.brand" name="brand" required />
-      
-          <label> Name* </label>
-          <input type="text" [(ngModel)]="newPhone.name" name="name" required />
-      
-          <label> Specs </label>
-          <input type="text" #spec />
-          <button (click)="addSpec(spec.value); spec.value = ''"> add </button>
-      
-          <ul>
-            <li *ngFor="let spec of newPhone.specs"> {{ spec }} </li>
-          </ul>
-          <small *ngIf="!newPhone.specs.length"> This phone has no specs :( </small>
-      
           <input type="file" name="file" ng2FileSelect [uploader]="uploader" />
-      
         </fieldset>
-        <button (click)="submit()"> submit </button>
+        <button (click)="submitAvatar()"> submit </button>
       </form>
   
   </div>

@@ -40,34 +40,34 @@ html {
   #site-header {
     padding: 30px 0;
     color: black;
-    background: rgb(234, 255, 236);
+    background: rgb(122, 194, 173);
   }
   
   #site-footer {
+    padding: 30px 0;
     color: black;
-    padding: 60px 0;
-    background: whitesmoke;
+    background: rgb(241, 150, 155);
   }
   
   #site-main {
     margin-bottom: 60px;
   }
   
-  .container {
+  /* .container {
     margin: 0 20px;
-  }
+  } */
   
-  .section {
+  /* .section {
     margin-bottom: 20px;
     padding-top: 20px;
-  }
+  } */
   
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     .container {
       max-width: 728px;
       margin: 0 auto;
     }
-  }
+  } */
     
   /* ---- components ---- */
 

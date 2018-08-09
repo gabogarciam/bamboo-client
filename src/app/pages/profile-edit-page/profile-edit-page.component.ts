@@ -13,7 +13,7 @@ import { FileUploader } from '../../../../node_modules/ng2-file-upload';
 })
 export class ProfileEditPageComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-    url: `/upload-avatar/`
+    url: `/user/upload-avatar/`
   });
 
   loading = true;
@@ -23,6 +23,7 @@ export class ProfileEditPageComponent implements OnInit {
   error = null;
   processing = false;
   username : string = '';
+  email : string = '';
 
   constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
 
@@ -41,6 +42,7 @@ export class ProfileEditPageComponent implements OnInit {
     if (form.valid) {
       this.processing = true;
       this.user.username = this.username;
+      this.user.email = this.username;
       this.userService.update(this.user)
       .then((result) => {
         this.error = null;

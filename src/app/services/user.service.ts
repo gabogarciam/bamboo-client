@@ -36,4 +36,15 @@ export class UserService {
         this.setUser(user);
       });
   }
+  // updateAvatar(): Promise<any> {
+  //   const options = {
+  //     withCredentials: true
+  //   };
+  //   return this.httpClient.post(`${this.baseUrl}/update-avatar`, updateData, options)
+  //     .toPromise()
+  //     .then((user) => {
+  //       this.setUser(user);
+  //     });
+    
+  // }
 }
