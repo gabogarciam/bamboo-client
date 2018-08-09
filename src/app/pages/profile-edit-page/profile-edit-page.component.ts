@@ -41,8 +41,8 @@ export class ProfileEditPageComponent implements OnInit {
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
-      this.user.username = this.username;
-      this.user.email = this.username;
+      this.user.username = form.value.username;
+      this.user.email = form.value.email;
       this.userService.update(this.user)
       .then((result) => {
         this.error = null;
