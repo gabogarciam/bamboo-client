@@ -24,7 +24,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { ProfileEditPageComponent } from './pages/profile-edit-page/profile-edit-page.component';
 
 // -- Components
-import { FileSelectDirective } from "ng2-file-upload";
+import {FileUploadModule } from "ng2-file-upload";
 
 // -- Routes
 const routes: Routes = [
@@ -44,14 +44,14 @@ const routes: Routes = [
     ProfilePageComponent,
     HomePageComponent,
     NotFoundPageComponent,
-    ProfileEditPageComponent,
-    FileSelectDirective
+    ProfileEditPageComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FileUploadModule
   ],
   providers: [
     AuthService,
