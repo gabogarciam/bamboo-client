@@ -1,4 +1,23 @@
 <!-- <button [routerLink]="['/profile-edit']">Edit profile</button> -->
-<div>
-    <p>profile-page works! {{user.username}}</p>
+<div class="card">
+    <div class="card-header">
+        Welcome {{user.username}}
+    </div>
+    <div class="contenedor">
+        <button class="botonF1">
+            <span><i class="fas fa-feather-alt"></i></span>
+        </button>
+    </div>
 </div>
+<div *ngFor="let publication of publications" class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{user.username}}</h5>
+        <p class="card-text">{{publication.text}}</p>
+        <button type="button" class="btn btn-primary"><a href="/profile"></a>Like</button>
+        
+        <button type="button" class="btn btn-success"><a href="/profile"></a>Comment</button>
+        
+        <button type="button" class="btn btn-warning"><a href="/profile"></a>Retweet</button>
+    </div>
+</div>
+      

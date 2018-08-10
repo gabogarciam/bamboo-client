@@ -1,31 +1,44 @@
-<header id="site-header" class="col-lg-12">
-  <div class="container navigation col-lg-12">
-    <div [ngClass]="{'is-user': user, 'is-anon': anon}" class="navbar navbar-default">
+<header id="site-header">
+    <div [ngClass]="{'is-user': user, 'is-anon': anon}" class="container-fluid">
       <div *ngIf="loading" class="container-fluid">
         <span class="username text">loading...</span>
       </div>
-      <div *ngIf="!loading && !!user" class="dropdown container-fluid">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{user.username}}
-            <!-- <img src="" alt="avatar user"> -->
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" [routerLink]="['/profile']">Your profile</a>
-          <a class="dropdown-item" [routerLink]="['/profile']">Edit Profile</a>
-          <a class="dropdown-item" (click)="logout()" >Logout</a>
-        </div>
-        <button type="button" class="btn btn-outline-primary" [routerLink]="['/profile-edit']">Edit profile</button>
-        <!-- <a [routerLink]="['/profile']">{{user.username}}</a> -->
-        <!-- <a (click)="logout()" class="btn btn-danger">Logout</a> -->
+      <div *ngIf="!loading && !!user">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" [routerLink]="['/profile']">Avatar {{user.username}}</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/profile']"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/profile']">Profile</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/profile']">People</a>
+                </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/profile-edit']">Settings</a>
+              </li>
+              <li class="nav-item">
+                <a (click)="logout()" class="nav-link disabled" href="/login">Log out</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Create Pío</button>
+            </form>
+          </div>
+        </nav>
       </div>
-      <div *ngIf="!loading && anon" class="container-fluid">
+      <div *ngIf="!loading && anon" class="navbar-header">
         <a [routerLink]="['/']" class="navbar-brand">{{title}}</a>
-        <a [routerLink]="['/login']">
-          <span class="glyphicons glyphicons-log-in"></span>Login</a>
-        <a [routerLink]="['/signup']">Signup</a>
+        <a [routerLink]="['/signup']" class="container-fluid">Sign Up</a>
+        <a [routerLink]="['/login']" class="container-fluid">Log in</a>
       </div>
     </div>
-  </div>
 </header>
   
 <div id="site-main" class="container">
@@ -34,9 +47,9 @@
   
 <footer id="site-footer" class="card text-center">
   <div class="container card-header">
-    Gallito Network by Gabriel Garcia
+    SocialPío by Gabriel Garcia
   </div>
   <div class="card-body">
       <h5 class="card-title">Ironhack</h5>
-    </div>
+  </div>
 </footer>

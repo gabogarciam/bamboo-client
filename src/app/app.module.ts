@@ -28,7 +28,7 @@ import {FileUploadModule } from "ng2-file-upload";
 
 // -- Routes
 const routes: Routes = [
-  { path: '',  component: HomePageComponent, canActivate: [ InitAuthGuard ] },
+  { path: '',  component: HomePageComponent, canActivate: [ RequireAnonGuard ] },
   { path: 'login',  component: LoginPageComponent, canActivate: [ RequireAnonGuard ] },
   { path: 'signup',  component: SignupPageComponent, canActivate: [ RequireAnonGuard ] },
   { path: 'profile',  component: ProfilePageComponent , canActivate: [ RequireUserGuard ] },

@@ -15,6 +15,7 @@ export class UserService {
   private userChange: Subject<any> = new Subject();
 
   private baseUrl = environment.apiUrl + 'user';
+  private baseUrl2 = environment.apiUrl + 'publication';
 
   userChange$: Observable<any> = this.userChange.asObservable();
 
@@ -36,6 +37,15 @@ export class UserService {
         this.setUser(user);
       });
   }
+
+  getMePublications(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl2}/get-publication`, options)
+    .toPromise();
+  }
+
   // updateAvatar(): Promise<any> {
   //   const options = {
   //     withCredentials: true

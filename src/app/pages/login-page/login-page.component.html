@@ -1,6 +1,6 @@
 <div>
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-    <h1>Login</h1>
+    <h2>Login</h2>
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
       <label>Username</label>
       <input type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" [disabled]="processing"/>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="field submit">
-      <button type="submit" [disabled]="processing">Signup</button>
+      <button type="submit" class="btn btn-outline-success" [disabled]="processing">Login  <i class="fas fa-sign-in-alt"></i></button>
       <div *ngIf="feedbackEnabled && form.invalid">
         <p class="validation">there are errors in the form, please review the fields</p>
       </div>

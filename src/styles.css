@@ -9,7 +9,7 @@ html {
   }
   
   body {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
   }
   
@@ -25,7 +25,11 @@ html {
   
   h1 {}
   
-  h2 {}
+  h2{
+    font-size: 35px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
   
   h3 {}
   
@@ -38,24 +42,27 @@ html {
   /* ---- layout ---- */
   
   #site-header {
-    padding: 30px 0;
+    padding: 0;
     color: black;
-    background: rgb(122, 194, 173);
+    background: rgb(252, 198, 117);
   }
   
   #site-footer {
-    padding: 30px 0;
-    color: black;
-    background: rgb(241, 150, 155);
+    padding: 5px 0;
+    color: white;
+    background: rgb(102, 94, 94);
+    position: absolute;
+    width: 100%;
+    /* bottom: 0; */
   }
   
   #site-main {
     margin-bottom: 60px;
   }
   
-  /* .container {
-    margin: 0 20px;
-  } */
+  .container {
+    margin: 0 auto;
+  }
   
   /* .section {
     margin-bottom: 20px;
@@ -98,13 +105,13 @@ form .submit {
   padding-top: 20px;
 }
 
-form .submit button {
+/* form .submit button {
   padding: 5px 20px;
   text-align: center;
   font-size: 16px;
   background-color: cyan;
   cursor: pointer;
-}
+} */
 
 form.is-processing button {
   cursor: default;
