@@ -23,7 +23,9 @@ export class ProfileEditPageComponent implements OnInit {
   error = null;
   processing = false;
   username : string = '';
+  bio : string = '';
   email : string = '';
+  title = 'Edit profile';
 
   constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
 

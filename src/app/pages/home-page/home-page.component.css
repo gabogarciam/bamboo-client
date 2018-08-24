@@ -11,10 +11,10 @@ h1{
     text-align: center!important;
 }
 
-.jumbotron {
-    background-color: rgb(252, 247, 247);
+.pdt50 {
+    padding-top: 30px!important;
 }
 
-.pdt50 {
-    padding-top: 50px!important;
+.header-home {
+    padding-bottom: 30px;
 }

@@ -1,3 +1,25 @@
 a {
     text-decoration: none;
+    color: white;
+}
+
+.site-main {
+    background-color: #fafafa;
+}
+
+.navbar-header {
+    display: flex;
+}
+
+.navbar-header > img {
+    height: 40px;
+}
+
+.signup-login {
+    margin: auto 10px auto auto;
+    
+}
+
+.navbar-brand {
+    padding-left: 5px;
 }

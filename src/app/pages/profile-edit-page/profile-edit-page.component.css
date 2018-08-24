@@ -1,0 +1,40 @@
+.navbarEditProfile {
+    height: 49px;
+    /* background-color: whitesmoke; */
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);;
+}
+.bar {
+    top: 0;
+    height: 50px;
+    width: 100%;
+    right: 0;
+    left: 130px;
+    padding-left: 50px;
+  }
+
+  .bar>h2 {
+      color: rgb(20, 23, 26);
+      font-size: 1.5em;
+  }
+
+  .circle {
+    left: 20px;
+    height: 27px;
+    position: absolute;
+    width: 27px;
+    cursor: pointer;
+  }
+
+  .left-arrow {
+    fill: rgb(42, 163, 239);
+    margin-left: 3px;
+    margin-top: 3px;
+    stroke: rgba(255,255,255,0.09);
+    width: 21px;
+    color: white;
+  }
+
+  .editProfileForm {
+      padding-top: 30px;
+  }

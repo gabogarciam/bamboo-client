@@ -46,6 +46,22 @@ export class UserService {
     .toPromise();
   }
 
+  getCounter(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/counters-follow`, options)
+    .toPromise();
+  }
+
+  uploadAvatar(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/upload-avatar`, options)
+    .toPromise();
+  }
+
   // updateAvatar(): Promise<any> {
   //   const options = {
   //     withCredentials: true

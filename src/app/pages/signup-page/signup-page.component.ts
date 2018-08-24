@@ -13,8 +13,9 @@ export class SignupPageComponent implements OnInit {
   error = null;
   processing = false;
   username: string;
+  email: string;
   password: string;
-  title = 'Sign up';
+  title = 'Create Account';
 
   constructor( private authService: AuthService, private router: Router ) { }
 

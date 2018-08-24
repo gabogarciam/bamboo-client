@@ -1,9 +1,9 @@
 <header id="site-header">
-    <div [ngClass]="{'is-user': user, 'is-anon': anon}" class="container-fluid">
-      <div *ngIf="loading" class="container-fluid">
+    <div [ngClass]="{'is-user': user, 'is-anon': anon}">
+      <div *ngIf="loading">
         <span class="username text">loading...</span>
       </div>
-      <div *ngIf="!loading && !!user">
+      <!-- <div *ngIf="!loading && !!user">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <a class="navbar-brand" [routerLink]="['/profile']">Avatar {{user.username}}</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,11 +32,13 @@
             </form>
           </div>
         </nav>
-      </div>
+      </div> -->
       <div *ngIf="!loading && anon" class="navbar-header">
-        <a [routerLink]="['/']" class="navbar-brand">{{title}}</a>
-        <a [routerLink]="['/signup']" class="container-fluid">Sign Up</a>
-        <a [routerLink]="['/login']" class="container-fluid">Log in</a>
+        <a [routerLink]="['/']" class="navbar-brand"><img src="../favicon.ico" alt="">{{title}}</a>
+        <!-- <div class="signup-login">
+          <a [routerLink]="['/login']">Log In</a>
+          <a [routerLink]="['/signup']">Sign Up</a>
+        </div> -->
       </div>
     </div>
 </header>
@@ -45,11 +47,11 @@
   <router-outlet></router-outlet>
 </div>
   
-<footer id="site-footer" class="card text-center">
-  <div class="container card-header">
-    SocialPío by Gabriel Garcia
+<footer [ngClass]="{'is-user': user, 'is-anon': anon}" id="site-footer" class="text-center">
+  <div *ngIf="!loading && anon">
+    <p>SocialPío by Gabriel Garcia</p>
   </div>
-  <div class="card-body">
-      <h5 class="card-title">Ironhack</h5>
+  <div *ngIf="!loading && anon">
+    <h5>Ironhack</h5>
   </div>
 </footer>
