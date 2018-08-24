@@ -1,4 +1,4 @@
-<div class="signupForm">
+<div class="loginForm">
   <form (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
     <h2>Log in</h2>
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
@@ -30,6 +30,6 @@
     </div>
   </form>
 </div>
-<div class="signupForm">
+<div class="loginForm">
   If you dont have an account yet, <a [routerLink]="['/signup']">create one here!</a>
 </div>

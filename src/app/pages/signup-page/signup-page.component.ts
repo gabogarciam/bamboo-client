@@ -25,7 +25,7 @@ export class SignupPageComponent implements OnInit {
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
-      this.authService.signup(this.username, this.password)
+      this.authService.signup(this.username, this.email, this.password)
       .then((result) => {
         this.router.navigate(['/profile']);
       })

@@ -2,7 +2,8 @@
     height: 49px;
     /* background-color: whitesmoke; */
     padding: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    display: flex;
 }
 .bar {
     top: 0;
@@ -21,7 +22,7 @@
   .circle {
     left: 20px;
     height: 27px;
-    position: absolute;
+    /* position: absolute; */
     width: 27px;
     cursor: pointer;
   }
@@ -37,4 +38,15 @@
 
   .editProfileForm {
       padding-top: 30px;
+  }
+
+  form .submit {
+      padding-top: 0;
+  }
+
+  form .submit button {
+      width: 80px;
+      border-radius: 15px;
+      border-color: #3897f0;
+      font-size: 1.2em;
   }

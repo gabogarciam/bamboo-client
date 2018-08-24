@@ -150,14 +150,12 @@ form .field.has-error input {
 }
 
 .card-tweet {
-  
   padding: 20px 50px;
 }
 
 .tweet-icons {
   display: flex;
   justify-content: space-between;
-  
 }
 
 .tweet-icons.like:hover {

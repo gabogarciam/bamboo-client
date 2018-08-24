@@ -12,7 +12,7 @@
 
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && emailField.errors}">
         <!-- <label>Email</label> -->
-        <input placeholder="Email" type="text" name="email" [(ngModel)]="email" #emailField="ngModel" required minlength="6" [disabled]="processing" />
+        <input placeholder="Email" type="email" name="email" [(ngModel)]="email" #emailField="ngModel" [disabled]="processing" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
         <div *ngIf="feedbackEnabled && emailField.errors">
           <p *ngIf="emailField.errors.required" class="validation">email required</p>
           <p *ngIf="emailField.errors.minlength" class="validation">email is too short</p>
@@ -29,7 +29,7 @@
       </div>
   
       <div class="field submit">
-        <button type="submit" class="btn" [disabled]="processing">Sign up  <i class="fas fa-sign-in-alt"></i></button>
+        <button type="submit" class="btn" [disabled]="!form.form.valid">Sign up  <i class="fas fa-sign-in-alt"></i></button>
         <div *ngIf="feedbackEnabled && form.invalid">
           <p class="validation">there are errors in the form, please review the fields</p>
         </div>
