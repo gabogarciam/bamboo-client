@@ -57,7 +57,7 @@ export class ProfilePageComponent implements OnInit {
   
       offset = offset > 60 ? 60:offset;
       const scale = 1 - offset / 60 * .44;
-      // avatar.style.transform = `scale(${scale})`;
+      avatar.style.transform = `scale(${scale})`;
     }, { passive: true });
   }
 
