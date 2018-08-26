@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '../../node_modules/@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // -- Services
 import { AuthService } from './services/auth.service';
@@ -25,6 +26,7 @@ import { ProfileEditPageComponent } from './pages/profile-edit-page/profile-edit
 
 // -- Components
 import {FileUploadModule } from "ng2-file-upload";
+import { ProfileHomePageComponent } from './pages/profile-home-page/profile-home-page.component';
 
 // -- Routes
 const routes: Routes = [
@@ -44,10 +46,12 @@ const routes: Routes = [
     ProfilePageComponent,
     HomePageComponent,
     NotFoundPageComponent,
-    ProfileEditPageComponent
+    ProfileEditPageComponent,
+    ProfileHomePageComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     FormsModule,
     HttpClientModule,

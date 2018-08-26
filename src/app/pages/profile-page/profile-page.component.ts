@@ -1,12 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 // import { ConsoleReporter } from 'jasmine';
 import { UserService } from '../../services/user.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css']
+  animations: [
+    trigger('heroState', [
+      state('inactive', style({
+        backgroundColor: '#eee',
+        transform: 'scale(1)'
+      })),
+      state('active',   style({
+        backgroundColor: '#cfd8dc',
+        transform: 'scale(1.1)'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
 })
 export class ProfilePageComponent implements OnInit {
   user: any;
@@ -57,7 +72,7 @@ export class ProfilePageComponent implements OnInit {
   
       offset = offset > 60 ? 60:offset;
       const scale = 1 - offset / 60 * .44;
-      avatar.style.transform = `scale(${scale})`;
+      // avatar.style.transform = `scale(${scale})`;
     }, { passive: true });
   }
 
