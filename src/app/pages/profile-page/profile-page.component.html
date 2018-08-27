@@ -29,10 +29,10 @@
         <div class="text">Soy Fernanda esto es de ejemplo debo cambiarlo para que sea dinamico...</div>
         <a href="/profile-edit"><div class="edit">Edit profile</div></a>
         <div class="lives">
-            <span class="count">9</span><span class="what">Following</span>
+            <span class="count">{{counter.following}}</span><span class="what">Following</span>
         </div>
         <div class="problems">
-            <span class="count">99</span><span class="what">Followed</span>
+            <span class="count">{{counter.followed}}</span><span class="what">Followers</span>
         </div>
         <div class="divider"></div>
         <div *ngFor="let publication of publications" class="tweet">
@@ -53,13 +53,15 @@
         </div>
         <div class="bar image">
             <div class="background"></div>
-            <div class="circle">
-                <svg viewBox="0 0 24 24" class="left-arrow">
-                    <g>
-                      <path d="M20 11H7.414l4.293-4.293a1 1 0 0 0-1.414-1.414l-6 6a1 1 0 0 0 0 1.414l6 6a.996.996 0 0 0 1.414 0 1 1 0 0 0 0-1.414L7.414 13H20a1 1 0 1 0 0-2z"></path>
-                    </g>
-                </svg>
-            </div>
+            <a href="/home">
+                <div class="circle">
+                    <svg viewBox="0 0 24 24" class="left-arrow">
+                        <g>
+                        <path d="M20 11H7.414l4.293-4.293a1 1 0 0 0-1.414-1.414l-6 6a1 1 0 0 0 0 1.414l6 6a.996.996 0 0 0 1.414 0 1 1 0 0 0 0-1.414L7.414 13H20a1 1 0 1 0 0-2z"></path>
+                        </g>
+                    </svg>
+                </div>
+            </a>
             <!-- <div class="circle circle-right">
                 <svg viewBox="0 0 24 24" class="menu">
                     <g>
@@ -68,7 +70,7 @@
                 </svg>
             </div> -->
             <div class="bar-name">{{user.username}}</div>
-            <div class="tweets">2.03B Tweets</div>
+            <div class="tweets">{{counter.publications}} Tweets</div>
         </div>
     </div>
 </div>      

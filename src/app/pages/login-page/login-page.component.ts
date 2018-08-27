@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit {
       this.processing = true;
       this.authService.login(this.username, this.password)
       .then((result) => {
-        this.router.navigate(['/profile']);
+        this.router.navigate(['/home']);
       })
       .catch((err) => {
         this.error = err.error;

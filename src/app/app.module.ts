@@ -23,10 +23,10 @@ import { ProfilePageComponent } from './pages/profile-page/profile-page.componen
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.component';
 import { ProfileEditPageComponent } from './pages/profile-edit-page/profile-edit-page.component';
+import { ProfileHomePageComponent } from './pages/profile-home-page/profile-home-page.component';
 
 // -- Components
 import {FileUploadModule } from "ng2-file-upload";
-import { ProfileHomePageComponent } from './pages/profile-home-page/profile-home-page.component';
 
 // -- Routes
 const routes: Routes = [
@@ -35,6 +35,7 @@ const routes: Routes = [
   { path: 'signup',  component: SignupPageComponent, canActivate: [ RequireAnonGuard ] },
   { path: 'profile',  component: ProfilePageComponent , canActivate: [ RequireUserGuard ] },
   { path: 'profile-edit',  component: ProfileEditPageComponent , canActivate: [ RequireUserGuard ] },
+  { path: 'home',  component: ProfileHomePageComponent , canActivate: [ RequireUserGuard ] },
   { path: '**', component: NotFoundPageComponent, canActivate: [ InitAuthGuard ] }
 ];
 

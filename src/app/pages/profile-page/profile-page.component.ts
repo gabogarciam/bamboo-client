@@ -7,7 +7,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
-  styleUrls: ['./profile-page.component.css']
+  styleUrls: ['./profile-page.component.css'],
   animations: [
     trigger('heroState', [
       state('inactive', style({
@@ -72,6 +72,7 @@ export class ProfilePageComponent implements OnInit {
   
       offset = offset > 60 ? 60:offset;
       const scale = 1 - offset / 60 * .44;
+      // avatar.animate(state);
       // avatar.style.transform = `scale(${scale})`;
     }, { passive: true });
   }
