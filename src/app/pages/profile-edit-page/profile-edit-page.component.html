@@ -24,13 +24,16 @@
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
         <label>Name</label>
         <input placeholder="Add your name" type="text" name="username" [(ngModel)]="user.username" #usernameField="ngModel" [disabled]="processing"/>
+        <div class="counterLetter">0/50</div>
         <div *ngIf="feedbackEnabled && usernameField.errors">
           <p *ngIf="usernameField.errors.required" class="validation">username required</p>
         </div>
       </div>
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
           <label>Bio</label>
-          <input placeholder="Add your Bio" type="text" name="biography" [(ngModel)]="user.biography" #biographyField="ngModel" [disabled]="processing"/>
+          <textarea placeholder="Add your Bio" type="text" name="biography" [(ngModel)]="user.biography" #biographyField="ngModel" [disabled]="processing" maxlength="160"></textarea>
+          <div class="counterLetter">0/160</div>
+          <!-- <input placeholder="Add your Bio" type="text" name="biography" [(ngModel)]="user.biography" #biographyField="ngModel" [disabled]="processing"/> -->
           <div *ngIf="feedbackEnabled && biographyField.errors">
             <p *ngIf="biographyField.errors.required" class="validation">biography required</p>
           </div>
@@ -58,7 +61,7 @@
     </form>
 
     
-    <form>
+    <form (ngSubmit)="submitAvatar(formAvatar)" #formAvatar="ngForm" novalidate [ngClass]="{'is-processing': processing}">
       <fieldset>
         <label for="">Upload avatar</label>
         <input type="file" name="file" ng2FileSelect [uploader]="uploader" placeholder="Upload avatar"/>

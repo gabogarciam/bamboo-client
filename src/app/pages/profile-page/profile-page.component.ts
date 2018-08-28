@@ -9,7 +9,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css'],
   animations: [
-    trigger('heroState', [
+    trigger('changeState', [
       state('inactive', style({
         backgroundColor: '#eee',
         transform: 'scale(1)'
@@ -34,6 +34,7 @@ export class ProfilePageComponent implements OnInit {
    }
 
   ngOnInit() {
+    
     this.userService.getMePublications()
     .then((data) => {
       this.publications = data;
@@ -44,8 +45,10 @@ export class ProfilePageComponent implements OnInit {
 
     this.userService.getCounter()
     .then((data) => {
+      console.log('data: ',data);
       localStorage.setItem('counters', JSON.stringify(data));
       this.counter = data;
+      console.log('counter: ',this.counter);
     })
     .catch((error) => {
       console.log(error);
@@ -71,8 +74,7 @@ export class ProfilePageComponent implements OnInit {
       }
   
       offset = offset > 60 ? 60:offset;
-      const scale = 1 - offset / 60 * .44;
-      // avatar.animate(state);
+      // const scale = 1 - offset / 60 * .44;
       // avatar.style.transform = `scale(${scale})`;
     }, { passive: true });
   }

@@ -4,7 +4,9 @@ import { Router } from '../../../../node_modules/@angular/router';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { FileUploader } from '../../../../node_modules/ng2-file-upload';
+import { environment } from '../../../environments/environment';
 
+const URL = environment.apiUrl + 'user';
 
 @Component({
   selector: 'app-profile-edit-page',
@@ -13,7 +15,7 @@ import { FileUploader } from '../../../../node_modules/ng2-file-upload';
 })
 export class ProfileEditPageComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-    url: `/user/upload-avatar/`
+    url: URL
   });
 
   loading = true;
@@ -45,6 +47,7 @@ export class ProfileEditPageComponent implements OnInit {
       this.processing = true;
       this.user.username = form.value.username;
       this.user.email = form.value.email;
+      this.user.bio = form.value.biography;
       this.userService.update(this.user)
       .then((result) => {
         this.error = null;

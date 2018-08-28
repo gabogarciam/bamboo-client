@@ -54,7 +54,15 @@ export class UserService {
     .toPromise();
   }
 
-  uploadAvatar(): Promise<any> {
+  getAvatar(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/get-avatar`, options)
+    .toPromise();
+  }
+
+  uploadAll(): Promise<any> {
     const options = {
       withCredentials: true
     };
