@@ -60,8 +60,8 @@
       </div> -->
     </form>
 
-    
-    <form (ngSubmit)="submitAvatar(formAvatar)" #formAvatar="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+    <!-- (ngSubmit)="submitAvatar(formAvatar)" -->
+    <form  #formAvatar="ngForm" novalidate [ngClass]="{'is-processing': processing}">
       <fieldset>
         <label for="">Upload avatar</label>
         <input type="file" name="file" ng2FileSelect [uploader]="uploader" placeholder="Upload avatar"/>
