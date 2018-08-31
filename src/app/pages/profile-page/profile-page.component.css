@@ -49,11 +49,6 @@ transform:rotate(360deg);
   transform:scale(1);
 }
 
-.username {
-    color: rgb(20, 23, 26);
-    font-weight: bold;
-}
-
 a {
     text-decoration: none;
     color: white;
@@ -108,7 +103,7 @@ body {
   }
 
   .avatar {
-    background: url('https://media.licdn.com/dms/image/C4E03AQHciMiercVDJg/profile-displayphoto-shrink_200_200/0?e=1539216000&v=beta&t=rtbyIP4j64wldgpBEg3MPrpmDQPeBCv_dEN8ZDyL3Io');
+    /* background: url('https://media.licdn.com/dms/image/C4E03AQHciMiercVDJg/profile-displayphoto-shrink_200_200/0?e=1539216000&v=beta&t=rtbyIP4j64wldgpBEg3MPrpmDQPeBCv_dEN8ZDyL3Io'); */
     background-size: contain;
     border-radius: 50%;
     border: 3px solid white;
@@ -208,6 +203,7 @@ body {
     left: 90px;
     position: absolute;
     top: 312px;
+    padding-left: 10px;
   }
 
   .count {

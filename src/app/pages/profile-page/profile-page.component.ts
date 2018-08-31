@@ -27,10 +27,16 @@ export class ProfilePageComponent implements OnInit {
   user: any;
   anon: boolean;
   publications: any;
-  counter: any;
+  // counter: any;
+  following: any;
+  followed: any;
+  tweets: any;
+  url : string;
+  image: string;
 
   constructor(private authService: AuthService, private userService: UserService) {  
     this.user = this.authService.getUser();
+    this.url = this.userService.url;
    }
 
   ngOnInit() {
@@ -45,18 +51,20 @@ export class ProfilePageComponent implements OnInit {
 
     this.userService.getCounter()
     .then((data) => {
-      console.log('data: ',data);
       localStorage.setItem('counters', JSON.stringify(data));
-      this.counter = data;
-      console.log('counter: ',this.counter);
+      // this.counter = data;
+      this.following = data.following;
+      this.followed = data.followed;
+      this.tweets = data.publications;
+      console.log(data);
     })
     .catch((error) => {
       console.log(error);
     })
 
-    const phone = document.querySelector('.phone'),
-          bar = document.querySelector('.bar'),
-          avatar = document.querySelector('.avatar');
+    const phone = document.querySelector('.phone');
+    const bar = document.querySelector('.bar');
+    // const avatar = document.querySelector('.avatar');
 
     phone.addEventListener('scroll', (e) => {
       let offset = phone.scrollTop;
@@ -77,6 +85,11 @@ export class ProfilePageComponent implements OnInit {
       // const scale = 1 - offset / 60 * .44;
       // avatar.style.transform = `scale(${scale})`;
     }, { passive: true });
+  }
+
+  getAvatar() {
+    this.userService.getAvatar()
+      .then( image => {this.image = image});
   }
 
 }

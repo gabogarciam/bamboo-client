@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-profile-home-page',
@@ -10,10 +11,35 @@ import { AuthService } from '../../services/auth.service';
 export class ProfileHomePageComponent implements OnInit {
 
   title = 'Home';
+  // counter: any;
+  following: any;
+  followed: any;
+  tweets: any;
+  url : string;
+  image: string;
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) {
+    this.url = this.userService.url;
+   }
 
   ngOnInit() {
+    this.userService.getCounter()
+    .then((data) => {
+      localStorage.setItem('counters', JSON.stringify(data));
+      // this.counter = data;
+      this.following = data.following;
+      this.followed = data.followed;
+      this.tweets = data.publications;
+      console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+  }
+
+  getAvatar() {
+    this.userService.getAvatar()
+      .then( image => {this.image = image});
   }
 
   logout() {

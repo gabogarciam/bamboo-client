@@ -8,16 +8,22 @@
   <div class="username">
     <div id="container-avatar">
       <!-- <div id="badge">12</div> -->
-      <img src="https://media.licdn.com/dms/image/C4E03AQHciMiercVDJg/profile-displayphoto-shrink_200_200/0?e=1539216000&v=beta&t=rtbyIP4j64wldgpBEg3MPrpmDQPeBCv_dEN8ZDyL3Io" />
+      <img src="{{url + '/get-avatar/'}}" />
       <!-- <img src="{{lhvj}}" /> -->
       <!-- <span class="entypo-menu"></span> -->
       <div class="nav">
         <ul>
-          <li><a href="/profile"><span class="far fa-user"></span>Profile</a></li>
-          <li><a (click)="logout()" href="/login"><span class="entypo-logout"></span>Logout</a></li>
+            <a href="/profile"><li><span class="far fa-user"></span>Profile</li></a>
+            <a (click)="logout()" href="/login"><li><span class="entypo-logout"></span>Logout</li></a>
         </ul>
       </div>
     </div>
     <h3>{{title}}</h3>
   </div>
+</div>
+
+<div>
+  <nav>
+    
+  </nav>
 </div>

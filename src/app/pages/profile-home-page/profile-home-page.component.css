@@ -152,6 +152,10 @@ body {
   cursor: pointer;
 }
 
-.nav ul li a {
+a { 
+  text-decoration: none;
+}
+
+.nav ul li {
   color: #efefef;
 }

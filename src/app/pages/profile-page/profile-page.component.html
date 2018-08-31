@@ -1,38 +1,18 @@
-<!-- <button [routerLink]="['/profile-edit']">Edit profile</button> -->
-<!-- <div class="card">
-    <div class="card-header">
-        <p>Home</p>
-    </div>
-    <div class="contenedor">
-        <button class="botonF1">
-            <a href="/profile-edit"><span><i class="fas fa-feather-alt"></i></span></a>
-        </button>
-    </div>
-</div> -->
-<!-- <div *ngFor="let publication of publications" class="tweet">
-    <div class="card-tweet">
-        <span class="username">{{user.username}}</span>
-        <p>{{publication.text}}</p>
-        <div class="tweet-icons">
-            <div class="tweet-icons"><i class="far fa-comment-dots"></i></div>
-            <div class="tweet-icons"><i class="fas fa-retweet"></i></div>
-            <div class="tweet-icons like"><i class="far fa-heart"></i></div>
-        </div>
-    </div>
-</div> -->
 <div class="phone">
     <div class="content">
         <div class="drop image"></div>
-        <div class="avatar"></div>
+        <div>
+            <img src="{{url + '/get-avatar/'}}" alt="" class="avatar">
+        </div>
         <div class="name">{{user.username}}</div>
         <div class="tag">@{{user.username}}</div>
         <div class="text">{{user.biography}}</div>
         <a href="/profile-edit"><div class="edit">Edit profile</div></a>
         <div class="lives">
-            <span class="count">{{counter.following}}</span><span class="what">Following</span>
+            <span class="count">{{following}}</span><span class="what">Following</span>
         </div>
         <div class="problems">
-            <span class="count">{{counter.followed}}</span><span class="what">Followers</span>
+            <span class="count">{{followed}}</span><span class="what">Followers</span>
         </div>
         <div class="divider"></div>
         <div *ngFor="let publication of publications" class="tweet">
@@ -62,15 +42,8 @@
                     </svg>
                 </div>
             </a>
-            <!-- <div class="circle circle-right">
-                <svg viewBox="0 0 24 24" class="menu">
-                    <g>
-                        <path d="M14.86 4.632c0 1.578-1.282 2.86-2.86 2.86S9.14 6.21 9.14 4.633s1.282-2.86 2.86-2.86 2.86 1.282 2.86 2.86zm-4.22 0c0 .75.61 1.36 1.36 1.36s1.36-.61 1.36-1.36-.61-1.36-1.36-1.36-1.36.61-1.36 1.36zm4.22 7.388c0 1.58-1.282 2.862-2.86 2.862s-2.86-1.284-2.86-2.86S10.42 9.158 12 9.158s2.86 1.283 2.86 2.86zm-4.22 0c0 .75.61 1.362 1.36 1.362a1.361 1.361 0 0 0 0-2.722c-.75 0-1.36.61-1.36 1.36zm4.22 7.39c0 1.577-1.282 2.86-2.86 2.86s-2.86-1.284-2.86-2.86 1.282-2.862 2.86-2.862 2.86 1.284 2.86 2.86zm-4.22 0c0 .75.61 1.36 1.36 1.36a1.361 1.361 0 0 0 0-2.722c-.75 0-1.36.61-1.36 1.36z"></path>
-                    </g>
-                </svg>
-            </div> -->
             <div class="bar-name">{{user.username}}</div>
-            <div class="tweets">{{counter.publications}} Tweets</div>
+            <div class="tweets">{{tweets}} Tweets</div>
         </div>
     </div>
 </div>      

@@ -164,3 +164,8 @@ form .field.has-error input {
 .tweet-icons.like:hover {
   background-color: red;
 }
+
+.username {
+  color: rgb(20, 23, 26);
+  font-weight: bold;
+}

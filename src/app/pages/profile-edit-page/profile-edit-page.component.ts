@@ -15,21 +15,25 @@ const URL = environment.apiUrl + 'user';
 })
 export class ProfileEditPageComponent implements OnInit {
   uploader: FileUploader = new FileUploader({
-    url: URL
+    url: URL + '/upload-avatar', itemAlias: 'photo'
   });
 
+  title = 'Edit profile';
   loading = true;
   anon: boolean;
   user: any;
   feedbackEnabled = false;
   error = null;
   processing = false;
-  username : string = '';
-  bio : string = '';
-  email : string = '';
-  title = 'Edit profile';
+  username : string;
+  bio : string;
+  email : string;
+  url : string;
+  image: string;
 
-  constructor(private userService: UserService, private authService: AuthService, private router: Router) {}
+  constructor(private userService: UserService, private authService: AuthService, private router: Router) {
+    this.url = this.userService.url;
+  }
 
   ngOnInit() {
     this.user = this.authService.getUser();
@@ -37,7 +41,20 @@ export class ProfileEditPageComponent implements OnInit {
       this.loading = false;
       this.user = user;
       this.anon = !user;
+      //this.getAvatar();
     });
+    this.uploader.onAfterAddingFile = (file)=> { file.withCredentials = true; };
+    this.uploader.onCompleteItem = (item:any, response:any, status:any, headers:any) => {
+      console.log("ImageUpload:uploaded:", item, status, response);
+    };
+    //this.getAvatar();
+
+    const input = document.querySelector('input'),
+          button = document.querySelector('img');
+
+    // input.addEventListener('click', (e) => {
+    //   button.on(click)
+    // })
   }
 
   submitForm(form) {
@@ -45,14 +62,9 @@ export class ProfileEditPageComponent implements OnInit {
     this.feedbackEnabled = true;
     if (form.valid) {
       this.processing = true;
-      this.user.username = form.value.username;
-      this.user.email = form.value.email;
-      this.user.bio = form.value.biography;
+      this.uploader.uploadAll();
       this.userService.update(this.user)
-      .then((result) => {
-        this.error = null;
-        this.processing = false;
-        this.feedbackEnabled = false;
+      .then(() => {
         this.router.navigate(['/profile']);
       })
       .catch((err) => {
@@ -63,7 +75,19 @@ export class ProfileEditPageComponent implements OnInit {
     }
   }
 
-  submitAvatar() {
-    this.uploader.uploadAll();
+  getAvatar() {
+    this.userService.getAvatar()
+      .then( image => {this.image = image});
+  }
+
+  // submitAvatar() {
+  //   this.uploader.uploadAll();
+  //   // localStorage.setItem
+  // }
+
+  public filesToUpload: Array<File>;
+
+  FileChangeEvent(fileInput: any) {
+    this.filesToUpload = <Array<File>>fileInput.target.files;
   }
 }

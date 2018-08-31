@@ -23,10 +23,13 @@
     <form class="editProfileForm" (ngSubmit)="submitForm(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
         <label>Name</label>
-        <input placeholder="Add your name" type="text" name="username" [(ngModel)]="user.username" #usernameField="ngModel" [disabled]="processing"/>
+        <input placeholder="Add your name" type="text" name="username" [(ngModel)]="user.username" #usernameField="ngModel" [disabled]="processing"minlength="6" />
         <div class="counterLetter">0/50</div>
-        <div *ngIf="feedbackEnabled && usernameField.errors">
-          <p *ngIf="usernameField.errors.required" class="validation">username required</p>
+        <div *ngIf="error" class="validation">
+          <div [ngSwitch]="error.code">
+            <p *ngSwitchCase="'username-not-unique'">Username is already in use</p>
+            <p *ngSwitchDefault>An unexpected error occured, pleased try again</p>
+          </div>
         </div>
       </div>
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
@@ -37,7 +40,7 @@
           <div *ngIf="feedbackEnabled && biographyField.errors">
             <p *ngIf="biographyField.errors.required" class="validation">biography required</p>
           </div>
-        </div>
+      </div>
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && emailField.errors}">
           <label>Email</label>
           <input placeholder="Add your email" type="email" name="email" [(ngModel)]="user.email" #emailField="ngModel" [disabled]="processing"/>
@@ -45,28 +48,24 @@
             <p *ngIf="emailField.errors.required" class="validation">email required</p>
           </div>
       </div>
-  
-      <!-- <div class="field submit">
-        <button type="submit" [disabled]="processing">Update Profile</button>
-        <div *ngIf="feedbackEnabled && form.invalid">
-          <p class="validation">there are errors in the form, please review the fields</p>
-        </div>
-        <div *ngIf="error" class="validation">
-          <div [ngSwitch]="error.code">
-            <p *ngSwitchCase="'not-found'">Username or password are incorrect</p>
-            <p *ngSwitchDefault>An unexpected error occured, pleased try again</p>
-          </div>
-        </div>
-      </div> -->
-    </form>
 
-    <!-- (ngSubmit)="submitAvatar(formAvatar)" -->
-    <form  #formAvatar="ngForm" novalidate [ngClass]="{'is-processing': processing}">
-      <fieldset>
-        <label for="">Upload avatar</label>
-        <input type="file" name="file" ng2FileSelect [uploader]="uploader" placeholder="Upload avatar"/>
-        <button (click)="submitAvatar()"> submit </button>
-      </fieldset>
+      <div>
+          <div class="avatar-container">
+            <img src="{{url + '/get-avatar/'}}" alt="" class="avatar">
+          </div>
+          <p>
+            <!-- <label for="">Upload avatar</label> -->
+            <input class="inputAvatar" type="file" name="file" ng2FileSelect [uploader]="uploader" placeholder="Upload avatar" accept="image/jpeg,image/png,image/webp" (change)="FileChangeEvent($event)" />
+          </p>
+      </div>
     </form>
-  
+    <!-- <form (ngSubmit)="submitAvatar(form)" #form="ngForm" novalidate [ngClass]="{'is-processing': processing}">
+      <div *ngIf="user.image">
+        <img src="{{url + user}}" alt="">
+      </div>
+      <label for="">Upload avatar</label>
+      <input type="file" name="file" ng2FileSelect [uploader]="uploader" placeholder="Upload avatar" accept="image/jpeg,image/png,image/webp" (change)="FileChangeEvent($event)" />
+      <button type="submit" [disabled]="processing">Upload avatar</button>
+    </form> -->
+    
   </div>

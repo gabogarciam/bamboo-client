@@ -6,6 +6,7 @@
       <input placeholder="Username" type="text" name="username" [(ngModel)]="username" #usernameField="ngModel" [disabled]="processing"/>
       <div *ngIf="feedbackEnabled && usernameField.errors">
         <p *ngIf="usernameField.errors.required" class="validation">username required</p>
+        <p *ngIf="usernameField.errors.minlength" class="validation">username is too short</p>
       </div>
     </div>
     <div class="field" [ngClass]="{'has-error': feedbackEnabled && passwordField.errors}">

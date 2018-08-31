@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 //Heroku
 import { environment } from '../../environments/environment';
+// import { open } from 'fs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,13 @@ export class UserService {
 
   private baseUrl = environment.apiUrl + 'user';
   private baseUrl2 = environment.apiUrl + 'publication';
+  public url: string;
 
   userChange$: Observable<any> = this.userChange.asObservable();
 
-  constructor( private httpClient:HttpClient  ) { }
+  constructor( private httpClient:HttpClient  ) { 
+    this.url = environment.apiUrl + 'user';
+  }
 
   private setUser(user?: any) {
     this.user = user;
@@ -66,9 +70,35 @@ export class UserService {
     const options = {
       withCredentials: true
     };
-    return this.httpClient.get(`${this.baseUrl}/upload-avatar`, options)
+    return this.httpClient.post(`${this.baseUrl}/upload-avatar`, options)
     .toPromise();
   }
+
+  // makeFileRequest(url: string, files: Array<File>, name: string) {
+  //   const options = {
+  //     withCredentials: true
+  //   };
+  //   return new Promise( (resolve, reject) => {
+  //     let formData: any = new FormData();
+  //     let xhr = new XMLHttpRequest();
+
+  //     for (let i=0; i<files.length; i++) {
+  //       formData.append(name, files[i], files[i].name);
+  //     }
+  //     xhr.onreadystatechange = function(){
+  //       if(xhr.readyState === 4){
+  //         if(xhr.status === 200) {
+  //           resolve(JSON.parse(xhr.response));
+  //         } else {
+  //           reject(xhr.response);
+  //         }
+  //       }
+  //     }
+  //     xhr.open('POST', url+'/upload-avatar', true);
+  //     xhr.setRequestHeader('Autorization', 'true');
+  //     xhr.send(formData);
+  //   })
+  // }
 
   // updateAvatar(): Promise<any> {
   //   const options = {
