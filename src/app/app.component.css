@@ -3,21 +3,12 @@ a {
     color: white;
 }
 
-/* #site-main {
-    background-color: #fafafa;
-} */
-
 .navbar-header {
     display: flex;
 }
 
-.navbar-header > img {
+.navbar-header img {
     height: 40px;
-}
-
-.signup-login {
-    margin: auto 10px auto auto;
-    
 }
 
 .navbar-brand {

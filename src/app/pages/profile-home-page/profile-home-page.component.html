@@ -1,29 +1,18 @@
-<!-- <a href="/profile">Profile</a><br /> -->
-<!-- <a (click)="logout()" href="/login">Log out</a> -->
-
-
 <!-- codepen -->
 
 <div id="panel">
   <div class="username">
     <div id="container-avatar">
-      <!-- <div id="badge">12</div> -->
       <img src="{{url + '/get-avatar/'}}" />
-      <!-- <img src="{{lhvj}}" /> -->
-      <!-- <span class="entypo-menu"></span> -->
-      <div class="nav">
-        <ul>
-            <a href="/profile"><li><span class="far fa-user"></span>Profile</li></a>
-            <a (click)="logout()" href="/login"><li><span class="entypo-logout"></span>Logout</li></a>
-        </ul>
-      </div>
     </div>
-    <h3>{{title}}</h3>
+    <div class="nav">
+      <ul>
+        <a [routerLink]="['/profile']"><li><span class="far fa-user"></span>Profile</li></a>
+        <a (click)="logout()" [routerLink]="['/login']"><li><span class="entypo-logout"></span>Logout</li></a>
+      </ul>
+    </div>
+    <div>
+      <h3>{{title}}</h3>
+    </div>
   </div>
-</div>
-
-<div>
-  <nav>
-    
-  </nav>
 </div>

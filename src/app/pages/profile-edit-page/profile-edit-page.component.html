@@ -35,7 +35,7 @@
       <div class="field" [ngClass]="{'has-error': feedbackEnabled && usernameField.errors}">
           <label>Bio</label>
           <textarea placeholder="Add your Bio" type="text" name="biography" [(ngModel)]="user.biography" #biographyField="ngModel" [disabled]="processing" maxlength="160"></textarea>
-          <div class="counterLetter">0/160</div>
+          <div class="counterLetter"><span  data-limit="160">0</span>/160</div>
           <!-- <input placeholder="Add your Bio" type="text" name="biography" [(ngModel)]="user.biography" #biographyField="ngModel" [disabled]="processing"/> -->
           <div *ngIf="feedbackEnabled && biographyField.errors">
             <p *ngIf="biographyField.errors.required" class="validation">biography required</p>

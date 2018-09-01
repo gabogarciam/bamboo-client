@@ -80,11 +80,6 @@ export class ProfileEditPageComponent implements OnInit {
       .then( image => {this.image = image});
   }
 
-  // submitAvatar() {
-  //   this.uploader.uploadAll();
-  //   // localStorage.setItem
-  // }
-
   public filesToUpload: Array<File>;
 
   FileChangeEvent(fileInput: any) {
