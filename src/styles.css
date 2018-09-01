@@ -79,12 +79,12 @@ html {
     padding-top: 20px;
   }
   
-  @media (min-width: 768px) {
+  /* @media (min-width: 768px) {
     .container {
       max-width: 728px;
       margin: 0 auto;
     }
-  }
+  } */
     
   /* ---- components ---- */
 

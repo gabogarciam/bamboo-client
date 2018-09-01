@@ -9,7 +9,24 @@
     </div>
 </header>
   
-<div id="site-main" class="container">
+<div id="site-main" class="container" [ngClass]="{'is-user': user, 'is-anon': anon}">
+  <div *ngIf="user && router.url === '/home'">
+    <div id="panel">
+        <div class="username">
+          <div id="container-avatar">
+            <img src="{{url + '/get-avatar/'}}" />
+         <span class="entypo-menu"></span>    
+          <div class="nav">
+            <ul>
+              <li><a [routerLink]="['/profile']"><span class="far fa-user"></span>Profile</a></li>
+              <li><a (click)="logout()" [routerLink]="['/login']"><span class="fas fa-sign-out-alt"></span>Logout</a></li>
+            </ul>
+          </div>
+         </div>
+        </div>
+        <p>Home</p>
+      </div>
+  </div>
   <router-outlet></router-outlet>
 </div>
   

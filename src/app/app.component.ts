@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -13,8 +14,12 @@ export class AppComponent implements OnInit {
   loading = true;
   anon: boolean;
   user: any;
+  url : string;
+  image: string;
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) {
+    this.url = this.userService.url;
+  }
 
   ngOnInit() {
     this.authService.userChange$.subscribe((user) => {
