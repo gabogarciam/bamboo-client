@@ -79,12 +79,33 @@ html {
     padding-top: 20px;
   }
   
-  /* @media (min-width: 768px) {
+  @media (min-width: 768px) {
     .container {
-      max-width: 728px;
+      max-width: 804px!important;
       margin: 0 auto;
     }
-  } */
+  }
+
+  @media (min-width: 576px) {
+    .container {
+      max-width: 804px!important;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1440px!important;
+      margin: 0 auto;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1440px!important;
+      margin: 0 auto;
+    }
+  }
     
   /* ---- components ---- */
 
