@@ -17,7 +17,7 @@
         <div class="divider"></div>
         <div *ngFor="let publication of publications" class="tweet">
             <div class="card-tweet">
-                <span class="username">{{user.username}}</span>
+                <span class="username">{{user.username}} - {{user.createdAt}}</span>
                 <p>{{publication.text}}</p>
                 <div class="tweet-icons">
                     <div class="tweet-icons"><i class="far fa-comment-dots"></i></div>

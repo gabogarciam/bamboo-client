@@ -11,38 +11,34 @@
   
 <div id="site-main" class="container" [ngClass]="{'is-user': user, 'is-anon': anon}">
   <div *ngIf="user && router.url === '/home'">
-  <!--  <div id="panel">
-      <div class="username">
-        <div id="container-avatar">
+    <nav role="navigation">
+      <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        <ul id="menu">
           <img src="{{url + '/get-avatar/'}}" />
-          <span class="entypo-menu"></span>    
-          <div class="nav">
-            <ul>
-              <li><a [routerLink]="['/profile']"><span class="far fa-user"></span>Profile</a></li>
-              <li><a (click)="logout()" [routerLink]="['/login']"><span class="fas fa-sign-out-alt"></span>Logout</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <h3>Home</h3>
-    </div>
-  </div> -->
-  <nav role="navigation">
-    <div id="menuToggle">
-      <input type="checkbox" />
-      <span></span>
-      <span></span>
-      <span></span>
-      <ul id="menu">
-        <img src="{{url + '/get-avatar/'}}" />
-        <p>{{user.username}}</p>
-        <a [routerLink]="['/profile']"><li>Profile</li></a>
-        <a (click)="logout()" [routerLink]="['/login']"><li>Logout</li></a>
-        <a href="#"><li>List</li></a>
-        <a href="#"><li>Bookmarks</li></a>
-        <a href="#"><li>Moments</li></a>
+          <p>{{user.username}}</p>
+          <li><a [routerLink]="['/profile']"><i class="fas fa-user-alt"></i> Profile</a></li>
+          <a [routerLink]="['/home']"><li><i class="fas fa-list-ul"></i> List</li></a>
+          <a [routerLink]="['/home']"><li><i class="far fa-bookmark"></i> Bookmarks</li></a>
+          <a [routerLink]="['/home']"><li><i class="fas fa-bolt"></i> Moments</li></a>
+          <a (click)="logout()" [routerLink]="['/login']"><li><i class="fas fa-sign-out-alt"></i> Log out</li></a>
       </ul>
     </div>
+    <ul id="home">
+      <li>
+        <a href="/home">
+          <i class="fas fa-home"></i>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="fas fa-search" id="people"></i>
+        </a>
+      </li>
+    </ul>
   </nav>
   </div>
   <router-outlet></router-outlet>
