@@ -23,7 +23,9 @@ a {
 }
 
 * {
+  box-sizing: border-box;
   list-style-type: none;
+  margin: 0;
   padding: 0;
   text-decoration: none;
 }
@@ -36,27 +38,31 @@ a {
   border-bottom: 1px solid  #eeeeee;
 }
 
-#panel p {
+h3 {
   font-size: 19px;
   font-weight: 900;
   padding-top: 11px;
+  padding-left: 130px;
   margin: 11px 20px 0 0;
-  position: relative;
 }
 
 #container-avatar {
   float: left;
-  height: 72px;
-  width: 72px;
+  /* border: 1px solid red; */
+  height: 60px;
+  width: 60px;
+  margin-left: -25px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 #container-avatar img {
   border: 4px solid #eeeeee;
   border-radius: 100px;
   display: block;
-  height: 72px;
-  width: 72px;
-  margin-left: -34px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 #container-avatar .entypo-menu {
@@ -94,7 +100,7 @@ a {
   color: #efefef;
   float: left;
   font-size: 13px;
-  left: -35px;
+  left: 8px;
   position: absolute;
   text-align: left;
   text-transform: uppercase;
