@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   url : string;
   image: string;
 
-  constructor(private authService: AuthService, private userService: UserService, private router: Router) {
+  constructor(private authService: AuthService, private userService: UserService, public router: Router) {
     this.url = this.userService.url;
   }
 
