@@ -1,0 +1,25 @@
+.title {
+    padding-top: 70px;
+}
+
+/* table.fixed-header th div{
+    position: absolute;
+    margin-top: -.5rem;
+    z-index: 11;
+    color:#333;
+} */
+/* table.fixed-header  thead tr{
+    height:2.5rem;
+}
+
+.user-list{
+    width:100%;
+}
+
+.user-list	td.text-right{
+    width:16rem;
+}*/
+
+button {
+    margin-left: 10px;
+}

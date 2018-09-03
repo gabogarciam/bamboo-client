@@ -1,0 +1,29 @@
+<div class="title">
+  <h1>{{title}}</h1>
+</div>
+<!-- <div *ngFor="let user of usersDb">
+    <div class="">
+      <p>
+        <a href="/">
+          {{user.username}}
+        </a>
+      </p>
+      <p>{{user.email}}</p>
+      <div>
+        <button>Seguir</button>
+      </div>
+    </div>
+</div> -->
+
+<table class="table table-striped table-hover user-list fixed-header">
+  <tbody>
+    <tr *ngFor="let user of usersDb">
+      <td><a href="/f">{{user.username}}</a></td>
+      <td>{{user.email}}</td>
+      <td class="text-right">
+        <button class="btn btn-outline-primary">Follow</button>
+        <button class="btn btn-outline-danger">Unfollow</button>			
+      </td>
+    </tr>
+    </tbody>
+</table>

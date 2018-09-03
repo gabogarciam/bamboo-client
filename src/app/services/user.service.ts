@@ -17,6 +17,7 @@ export class UserService {
 
   private baseUrl = environment.apiUrl + 'user';
   private baseUrl2 = environment.apiUrl + 'publication';
+  private baseUrl3 = environment.apiUrl + 'follow';
   public url: string;
 
   userChange$: Observable<any> = this.userChange.asObservable();
@@ -58,6 +59,14 @@ export class UserService {
     .toPromise();
   }
 
+  getCounterId(userId): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/counters-follow/${userId}`, options)
+    .toPromise();
+  }
+
   getAvatar(): Promise<any> {
     const options = {
       withCredentials: true
@@ -74,32 +83,6 @@ export class UserService {
     .toPromise();
   }
 
-  // makeFileRequest(url: string, files: Array<File>, name: string) {
-  //   const options = {
-  //     withCredentials: true
-  //   };
-  //   return new Promise( (resolve, reject) => {
-  //     let formData: any = new FormData();
-  //     let xhr = new XMLHttpRequest();
-
-  //     for (let i=0; i<files.length; i++) {
-  //       formData.append(name, files[i], files[i].name);
-  //     }
-  //     xhr.onreadystatechange = function(){
-  //       if(xhr.readyState === 4){
-  //         if(xhr.status === 200) {
-  //           resolve(JSON.parse(xhr.response));
-  //         } else {
-  //           reject(xhr.response);
-  //         }
-  //       }
-  //     }
-  //     xhr.open('POST', url+'/upload-avatar', true);
-  //     xhr.setRequestHeader('Autorization', 'true');
-  //     xhr.send(formData);
-  //   })
-  // }
-
   // updateAvatar(): Promise<any> {
   //   const options = {
   //     withCredentials: true
@@ -108,7 +91,39 @@ export class UserService {
   //     .toPromise()
   //     .then((user) => {
   //       this.setUser(user);
-  //     });
-    
+  //     });  
   // }
+
+  getUser(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/find`, options)
+    .toPromise();
+  }
+
+  getUsers(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl}/list`, options)
+    .toPromise();
+  }
+
+  getFollowingUser(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl3}/following-users`, options)
+    .toPromise();
+  }
+
+  getFollowUser(): Promise<any> {
+    const options = {
+      withCredentials: true
+    };
+    return this.httpClient.get(`${this.baseUrl3}/followed-users`, options)
+    .toPromise();
+  }
+
 }

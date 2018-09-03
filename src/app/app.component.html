@@ -10,7 +10,7 @@
 </header>
   
 <div id="site-main" class="container" [ngClass]="{'is-user': user, 'is-anon': anon}">
-  <div *ngIf="user && router.url === '/home'">
+  <div *ngIf="user && router.url === '/home' ||  router.url === '/list-users'">
     <nav role="navigation">
       <div id="menuToggle">
         <input type="checkbox" />
@@ -34,7 +34,7 @@
         </a>
       </li>
       <li>
-        <a href="">
+        <a [routerLink]="['/list-users']">
           <i class="fas fa-search" id="people"></i>
         </a>
       </li>
