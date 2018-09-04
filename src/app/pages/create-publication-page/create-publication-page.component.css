@@ -1,0 +1,91 @@
+body {
+    background-color: white!important;
+}
+
+form {
+    padding-left: 15px!important;
+    padding-right: 15px!important;
+}
+.navbarEditProfile {
+    height: 49px;
+    /* background-color: whitesmoke; */
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    display: flex;
+}
+.bar {
+    top: 0;
+    height: 50px;
+    width: 100%;
+    right: 0;
+    left: 130px;
+    padding-left: 50px;
+  }
+
+  .bar>h2 {
+      color: rgb(20, 23, 26);
+      font-size: 1.5em;
+  }
+
+  .circle {
+    left: 20px;
+    height: 27px;
+    /* position: absolute; */
+    width: 27px;
+    cursor: pointer;
+  }
+
+  .left-arrow {
+    fill: rgb(42, 163, 239);
+    margin-left: 3px;
+    margin-top: 3px;
+    stroke: rgba(255,255,255,0.09);
+    width: 21px;
+    color: white;
+  }
+
+  .editProfileForm {
+      padding-top: 30px;
+  }
+
+  form .submit {
+      padding-top: 0;
+  }
+
+  form .submit button {
+      width: 80px;
+      border-radius: 15px;
+      border-color: #3897f0;
+      font-size: 1.2em;
+  }
+
+  textarea {
+      height: 65px;
+      width: 100%;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+  }
+
+  input {
+      width: 100%;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+      padding-left: 0;
+  }
+
+  .counterLetter {
+      text-align: right;
+  }
+
+  .avatar {
+    height: 137px;
+    width: 137px;
+    border-radius: 50%;
+    border: 3px solid rgb(255, 255, 255);;
+  }
+
+  .inputAvatar {
+      /* display: none!important; */
+  }

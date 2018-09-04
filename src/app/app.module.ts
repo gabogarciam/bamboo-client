@@ -25,6 +25,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { ProfileEditPageComponent } from './pages/profile-edit-page/profile-edit-page.component';
 import { ProfileHomePageComponent } from './pages/profile-home-page/profile-home-page.component';
 import { ListUsersPageComponent } from './pages/list-users-page/list-users-page.component';
+import { CreatePublicationPageComponent } from './pages/create-publication-page/create-publication-page.component';
 
 // -- Components
 import {FileUploadModule } from "ng2-file-upload";
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'profile-edit',  component: ProfileEditPageComponent , canActivate: [ RequireUserGuard ] },
   { path: 'home',  component: ProfileHomePageComponent , canActivate: [ RequireUserGuard ] },
   { path: 'list-users', component: ListUsersPageComponent, canActivate: [ RequireUserGuard ] },
+  { path: 'compose', component: CreatePublicationPageComponent, canActivate: [ RequireUserGuard ] },
   { path: '**', component: NotFoundPageComponent, canActivate: [ InitAuthGuard ] }
 ];
 
@@ -51,7 +53,8 @@ const routes: Routes = [
     NotFoundPageComponent,
     ProfileEditPageComponent,
     ProfileHomePageComponent,
-    ListUsersPageComponent
+    ListUsersPageComponent,
+    CreatePublicationPageComponent
   ],
   imports: [
     BrowserModule,

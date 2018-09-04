@@ -17,9 +17,12 @@ export class ProfileHomePageComponent implements OnInit {
   tweets: any;
   url : string;
   image: string;
+  user: any;
+  publications: any;
 
   constructor(private authService: AuthService, private userService: UserService, private router: Router) {
     this.url = this.userService.url;
+    this.user = this.authService.getUser();
    }
 
   ngOnInit() {
@@ -31,6 +34,14 @@ export class ProfileHomePageComponent implements OnInit {
       this.followed = data.followed;
       this.tweets = data.publications;
       console.log(data);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+
+    this.userService.getMePublications()
+    .then((data) => {
+      this.publications = data;
     })
     .catch((error) => {
       console.log(error);

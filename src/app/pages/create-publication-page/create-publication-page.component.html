@@ -1,0 +1,33 @@
+<div>
+  <div class="navbarEditProfile">
+    <a [routerLink]="['/profile']">
+      <div class="circle">
+          <svg viewBox="0 0 24 24" class="left-arrow">
+              <g>
+                <path d="M20 11H7.414l4.293-4.293a1 1 0 0 0-1.414-1.414l-6 6a1 1 0 0 0 0 1.414l6 6a.996.996 0 0 0 1.414 0 1 1 0 0 0 0-1.414L7.414 13H20a1 1 0 1 0 0-2z"></path>
+              </g>
+          </svg>
+      </div>
+    </a>
+    <div class="bar">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="btnsave">
+      <form (ngSubmit)="submitPublication(form)">
+        <div class="submit">
+          <button type="submit" [disabled]="processing">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    <form class="editProfileForm" (ngSubmit)="submitPublication(form)" #form="ngForm">
+      <div class="field" [ngClass]="{'has-error': feedbackEnabled && textField.errors}">
+          <textarea placeholder="Whats happening?" type="text" name="text" [(ngModel)]="publication.text" #textField="ngModel" [disabled]="processing" maxlength="160"></textarea>
+          <div class="counterLetter"><span  data-limit="160">0</span>/160</div>
+          <!-- <input placeholder="Add your Bio" type="text" name="biography" [(ngModel)]="user.biography" #biographyField="ngModel" [disabled]="processing"/> -->
+          <div *ngIf="feedbackEnabled && textField.errors">
+            <p *ngIf="textField.errors.required" class="validation">biography required</p>
+          </div>
+      </div>
+    </form>
+  </div>

@@ -126,4 +126,12 @@ export class UserService {
     .toPromise();
   }
 
+  addPublication(publication): Promise<any> {
+    const options = {
+        withCredentials: true
+      };
+      return this.httpClient.post(`${this.baseUrl2}/save-publication`, publication, options)
+      .toPromise();
+}
+
 }
